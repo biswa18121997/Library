@@ -6,15 +6,16 @@ import {useState,useEffect} from 'react'
 import Categories from './Categories'
 
 export default function Bookmain() {
+   
 
     let [display,setDisplay]=useState([]);
     let [fillter,setFillter]=useState("All");
     let [search,setSearch]=useState("");
 
 
-
     let url="https://www.freetestapi.com/api/v1/books"
     let {data,error,loading}=useFectch(url);
+    
     if (loading) {
         return <p>Loading...</p>;
     }
@@ -27,7 +28,7 @@ export default function Bookmain() {
  
 
     // useEffect(()=>{
-    //     if(data && fillter=="All")
+    //     if(fillter=="All")
     //         setDisplay(data);
         
     // },[fillter])
