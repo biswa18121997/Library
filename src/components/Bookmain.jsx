@@ -73,6 +73,7 @@ export default function Bookmain() {
         }
     }
     function searcher(search){
+        
         let S=data.filter((items)=>items.title.toLowerCase().includes(search.toLowerCase()) || items.author.toLowerCase().includes(search.toLowerCase()));
         if(S.length==0){
             setDisplay([])
@@ -82,7 +83,9 @@ export default function Bookmain() {
         }
         else
             setDisplay(S);
+        
         setSearch("");
+        setFillter("All");
     }
     // if(fillter="All")
     //     setDisplay(data);
@@ -124,10 +127,10 @@ export default function Bookmain() {
   return (<div>
 
                 <div className="flex justify-center items-center m-2">
-                    <input onChange={(e)=>setSearch(e.target.value)} value={search} type="text" placeholder="Search Books Here->enter title or author" className="border-2 border-black p-2 rounded-2xl w-1/3"/>
+                    <input onChange={(e)=>{setSearch(e.target.value);setSearch(e.target.value)}} value={search} type="text" placeholder="Search Books Here->enter title or author" className="border-2 border-black p-2 rounded-2xl w-1/3"/>
                     <button onClick={()=>searcher(search)}  className="border p-2 bg-green-300 rounded-2xl m-1">Search</button>
                     <label  className="ml-18">Filter Books-:</label>
-                    <select id="filter" name="Filter" onChange={(e)=>filtering(e.target.value)}  className="border-2">
+                    <select id="filter" name="Filter" onChange={(e)=>{filtering(e.target.value);setFillter(e.target.value)}}  className="border-2">
                             <option name="All" value="All" >All</option>
                             {filerStackUnique.map((item)=><option key={item} name={item} value={item}>{item}</option>)}
                     </select>
@@ -141,7 +144,7 @@ export default function Bookmain() {
                 <hr/>
 
 
-
+            <h1 className="text-2xl font-bold p-2 m-3 border">Current Filter: {fillter }  </h1>
                 <div className='w-full grid grid-cols-3 grid-rows-3 gap-3 p-1 mt-3 bg-yellow-200'>
                         {display.map((items)=>(   
                         <Link to={`/allbooks/${items.id}`}  key={items.id}>

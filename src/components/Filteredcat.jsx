@@ -18,7 +18,7 @@ export default function Filteredcat(){
 
         <Categories />
 
-        <h1 className="text-3xl font-bold text-center p-4 m-4 underline ">Books Filtered by Category :{params.category}</h1>
+        <h1 className="text-3xl font-bold text-center p-4 m-4 underline underline-offset-8 inline">Books Filtered by Category :</h1> <span className="no-underline text-red-600  text-3xl font-bold text-center p-4 m-4  inline">{params.category}</span>
         <hr/>
         <div className="grid grid-cols-3 grid-rows-3 gap-3 m-4 bg-amber-200 p-5">
 
