@@ -1,6 +1,26 @@
+import { Link } from 'react-router-dom'
+
 function Footer(){
 
-
+    const navLinks=[
+        {
+            name:"Home",
+            hlink:"/"
+        },
+        {
+            name:"Browse Books",
+            hlink:"/allbooks"
+        },
+        {
+            name:"Add a Book",
+            hlink:"/addbooks",
+        },
+        // {
+        //     name: "MyCart",
+        //     hlink: "/mycart"
+        // }
+        
+    ]
 
     const Socials=[
         {
@@ -34,13 +54,15 @@ function Footer(){
             <button className="border-2 rounded-2xl p-2 m-2">Back to Top <i className="fa-solid fa-arrow-up-from-bracket"></i></button>
         </div>
         <div className="flex justify-around m-8 p-8">
-                <div className="">
-                        <h1>Links:</h1>
-                        <h2>Home</h2>
-                        <h2>Categories</h2>
-                        <h2>Products</h2>
-                        <h2>Your Orders</h2>
-                </div>
+                
+                <ul className='flex-col  '>
+                {navLinks.map((item,index)=>{return(  
+                <Link to={item.hlink} key={index}>
+                <li key={index} className='m-2  font-bold  hover:underline hover:text-white  hover:duration-500'>{item.name}</li>
+                </Link>)
+})}
+            </ul>
+                
 
                 <div>
                         <h1>About US:</h1>
