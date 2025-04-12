@@ -1,15 +1,20 @@
 import React from 'react'
 import useFectch from '../utils/useFectch'
 import { useParams } from 'react-router-dom';
-
+import {useSelector} from 'react-redux'
+import {Link} from 'react-router-dom'
 export default function BookDetails() {
     let params=useParams();
-   
+   let reduxbooks=useSelector((state)=>state.library.Books)
     let {data,error,loading}=useFectch("https://www.freetestapi.com/api/v1/books");
-    let details=data.filter(item=>item.id==params.id);
+    let finaldata=[...data,...reduxbooks];
+    let details=finaldata.filter(item=>item.id==params.id);
 
 
   return (<>
+  <Link to={"/allbooks"}>
+  <button className="border bg-red-500 text-white hover:bg-red-300 p-2 m-4 rounded-4xl font-semibold text-xl"><i className="fa-solid fa-circle-left"></i>  Back to Browse</button>
+  </Link>
   {details.map((item)=>
   
   <div key={item.id} className='border-2 flex  justify-around  m-4 bg-neutral-500 items-center   h-screen'>

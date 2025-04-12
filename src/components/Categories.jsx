@@ -2,8 +2,10 @@ import useFectch from '../utils/useFectch'
 import {useState,useEffect} from 'react'
 import {useParams} from 'react-router-dom'
 import {Link } from 'react-router-dom'
+import {useSelector} from 'react-redux'
 function Categories(){
     let [display,setDisplay]=useState([]);
+    let reduxbooks=useSelector((state)=>state.library.Books);
    
 
 
@@ -17,8 +19,8 @@ function Categories(){
     // console.log(data);
     // console.log(catdata)
     
-    
-    let category=catdata.map((items)=>items.genre)
+    let finaldata=[...catdata,...reduxbooks]
+    let category=finaldata.map((items)=>items.genre)
     category=[...new Set(category.flat())];
     // console.log("category" ,category);
 

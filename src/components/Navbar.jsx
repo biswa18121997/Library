@@ -42,9 +42,10 @@ export default function Navbar() {
                 </Link>)
 })}
         </ul>
-        <button className="shadow-2xl shadow-amber-900 bg-red-400 text-white border font-bold  p-2 rounded-full">MyCart <i className="fa-solid fa-cart-arrow-down"></i></button>
+        <Link to={"/addedbooks"}>
+        <button className="shadow-2xl shadow-amber-900 bg-red-400 text-white border font-bold  p-2 rounded-full">Your Added Books <i className="fa-solid fa-cart-arrow-down"></i></button>
 
-
+        </Link>
     </nav>
   )
 }

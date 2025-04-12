@@ -9,6 +9,9 @@ import BookDetails from './components/BookDetails.jsx'
 import Error from './components/Error.jsx'
 // import Categories from './components/Categories.jsx'
 import Filteredcat from './components/Filteredcat.jsx'
+import AddedBooks from './components/AddedBooks.jsx'
+import { Provider } from 'react-redux'
+import LibraryStore from './utils/LibraryStore.js'
 
 
 let routes=createBrowserRouter([
@@ -40,6 +43,10 @@ let routes=createBrowserRouter([
         {
           element : <Addbook />,
           path : "/addbooks"
+        },
+        {
+          element: <AddedBooks />,
+          path: "/addedbooks"
         }
         
     ],
@@ -48,7 +55,9 @@ let routes=createBrowserRouter([
 ]);
 
 createRoot(document.getElementById('root')).render(
+  // <Provider store={LibraryStore} >
   <StrictMode>
     <RouterProvider router={routes} />
   </StrictMode>
+  // </Provider>
 )

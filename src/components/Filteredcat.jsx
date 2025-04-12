@@ -2,16 +2,17 @@ import Categories from "./Categories";
 import {useParams,Link} from 'react-router-dom'
 import useFectch from '../utils/useFectch'
 import BookPage from "./BookPage";
-
+import {useSelector} from 'react-redux'
 
 export default function Filteredcat(){
-
+    let reduxbooks=useSelector((state)=>state.library.Books);
     let params=useParams();
     console.log(params)
     
 
     let {data,error,loading}=useFectch("https://www.freetestapi.com/api/v1/books");
-    let filter=data.filter((items)=>items.genre.includes(params.category));
+    let finaldata=[...data,...reduxbooks];
+    let filter=finaldata.filter((items)=>items.genre.includes(params.category));
     console.log(filter);
 
     return(<div className="bg-neutral-800/20">
@@ -23,8 +24,8 @@ export default function Filteredcat(){
         <div className="grid grid-cols-3 grid-rows-3 gap-3 m-4 bg-amber-200 p-5">
 
         {filter.map((item)=>(
-              <Link to={`/allbooks/${item.id}`}>
-                    <BookPage items={item} />
+              <Link to={`/allbooks/${item.id}`} key={item.id}>
+                    <BookPage items={item} key={item.id} />
             </Link>
         ))}
 

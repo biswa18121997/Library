@@ -8,15 +8,15 @@ function Error(){
 
 
     return(
-        <div className="h-screen w-screen flex flex-col  p-4 m-1 bg-red-400  justify-center items-center">
-                <Link to={`/allbooks`}>
+        <div className="h-screen min-w-fit flex flex-col   m-1 bg-red-400  justify-center items-center">
+                <Link to={`/`}>
                     <button className="border bg-green-300 p-2 rounded-4xl text-xl mb-8">Back to Browse Books</button>
        
                 </Link>
                    
           
            
-            <div className="flex justify-center items-center">   
+            <div className="flex justify-center items-center w-full">   
             <span className='text-6xl'>
                 <i className="fa-solid fa-triangle-exclamation"></i>
             </span>
