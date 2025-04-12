@@ -33,7 +33,7 @@ function Categories(){
                     <hr/>
                     {category.map((item)=>(
                         <Link to={`/allbooks/cat/${item}`} key={item}>
-                                 <button key={item.id} className='active:bg-red-300 p-2 m-2 border rounded-2xl hover:bg-amber-200 font-bold font-serif'> {item}</button>
+                                 <button key={item.id} className='active:bg-red-300 p-2 m-1 border rounded-2xl hover:bg-amber-200 font-bold font-serif'> {item}</button>
                         </Link>
 
                        

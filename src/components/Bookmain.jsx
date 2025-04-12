@@ -146,7 +146,14 @@ export default function Bookmain() {
 
   return (<div>
 
-                <div className="flex justify-center items-center m-2">
+                
+                <div>
+                    
+                    <Categories />
+
+            </div>
+                <hr/>
+                <div className="flex justify-center items-center m-2 bg-neutral-300 p-2 border-t-2">
                     <input onChange={(e)=>{setSearch(e.target.value)}} value={search} type="text" placeholder="Search Books Here->enter title or author" className="border-2 border-black p-2 rounded-2xl w-1/3"/>
                     <button onClick={()=>searcher(search)}  className="border p-2 bg-green-300 rounded-2xl m-1">Search</button>
                     <label  className="ml-18">Filter Books-:</label>
@@ -156,12 +163,6 @@ export default function Bookmain() {
                     </select>
 
                 </div>
-                <div>
-                    
-                    <Categories />
-
-            </div>
-                <hr/>
 
 
             <h1 className="text-2xl font-bold p-2 m-3 border">Current Filter: {fillter }  </h1>
